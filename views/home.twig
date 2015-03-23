@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Stylists</title>
+
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+
+        <style>
+        #left{
+            float: left;
+
+
+        }
+        #right{
+            float: left;
+            background-color: linen;
+
+
+        }
+
+
+        </style>
+    </head>
+    <body>
+<div class="container">
+<h1>Here All Our Stylists</h1>
+<div id="left">
+            <form action="/" method = "post">
+                <label for="name"> Stylist: </label>
+                <input id="name" name="name" type="text"></input>
+                <button type="Submit">Add stylist</button>
+            </form>
+
+        </div>
+
+           <div id="right">
+
+           {% for stylist in stylists   %}
+           <a href="/stylist/{{ stylist.getId }}">{{ stylist.getName }}</a>
+           {% endfor %}
+
+           </div>
+           <form action="/delete_stylists" method="post">
+                      <button type="submit">Delete Cuisines</button>
+                  </form>
+        
+
+</div>
+    </body>
+</html>
